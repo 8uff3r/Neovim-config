@@ -54,3 +54,7 @@ if Util.has("toggleterm.nvim") then
   map("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", { desc = "ToggleTerm vertical split" })
   -- map({ "n", "t" }, { "<F7>", "<C-'>" }, "<cmd>ToggleTerm<cr>", { desc = "Toggle terminal" })
 end
+
+if Util.has("telescope.nvim") then
+  map("n", "<A-x>", "<cmd>Telescope commands<cr>", opts)
+end
