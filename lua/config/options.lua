@@ -48,6 +48,7 @@ local options = {
   updatetime = 300, -- Length of time to wait before triggering the plugin
   wrap = true, -- enable wrapping of lines longer than the width of window
   writebackup = false,
+  autochdir = true,
 }
 
 local globals = {

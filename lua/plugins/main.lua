@@ -1,11 +1,31 @@
 return {
   { "folke/neoconf.nvim", cmd = "Neoconf" },
-  "folke/neodev.nvim",
+  { "folke/neodev.nvim" },
   {
     "nvim-neorg/neorg",
-    -- lazy-load on filetype
-    ft = "norg",
-    config = true,
+    build = ":Neorg sync-parsers",
+    run = ":Neorg sync-parsers",
+    config = function()
+      require("neorg").setup({
+        load = {
+          ["core.defaults"] = {},
+        },
+      })
+    end,
+    opts = {
+      load = {
+        ["core.defaults"] = {}, -- Loads default behaviour
+        ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+        ["core.norg.dirman"] = { -- Manages Neorg workspaces
+          config = {
+            workspaces = {
+              notes = "~/notes",
+            },
+          },
+        },
+      },
+    },
+    dependencies = { { "nvim-lua/plenary.nvim" } },
   },
   { "nvim-lua/plenary.nvim" },
   { "nyoom-engineering/oxocarbon.nvim" },
@@ -26,4 +46,17 @@ return {
     end,
   },
   { "kdheepak/lazygit.nvim" },
+  { "mrjones2014/smart-splits.nvim" },
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      max_height = function()
+        return math.floor(vim.o.lines * 0.15)
+      end,
+      max_width = function()
+        return math.floor(vim.o.columns * 0.15)
+      end,
+    },
+  },
+  -- { "ggandor/leap.nvim", enabled = false },
 }

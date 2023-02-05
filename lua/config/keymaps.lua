@@ -15,7 +15,8 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save" })
-
+map("n", "<leader>bs", "<cmd>:BufferLinePick<CR>", { desc = "Pick buffer" })
+map("n", "<leader>d", "<cmd>Alpha<cr>", { desc = "Alpha" })
 -- ToggleTerm
 if Util.has("toggleterm.nvim") then
   local toggle_term_cmd = helpers.toggle_term_cmd
@@ -40,6 +41,11 @@ if Util.has("toggleterm.nvim") then
   end
   if vim.fn.executable("btm") == 1 then
     map("n", "<leader>tt", function()
+      config = function()
+        require("nvim-surround").setup({
+          -- Configuration here, or leave empty to use defaults
+        })
+      end
       toggle_term_cmd("btm")
     end, { desc = "ToggleTerm btm" })
   end
@@ -54,7 +60,12 @@ if Util.has("toggleterm.nvim") then
   map("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", { desc = "ToggleTerm vertical split" })
   -- map({ "n", "t" }, { "<F7>", "<C-'>" }, "<cmd>ToggleTerm<cr>", { desc = "Toggle terminal" })
 end
+-- Improved Terminal navigation
+map("t", "<C-h>", "<c-\\><c-n><c-w>h", { desc = "Terminal left window navigation" })
+map("t", "<C-j>", "<c-\\><c-n><c-w>j", { desc = "Terminal down window navigation" })
+map("t", "<C-k>", "<c-\\><c-n><c-w>k", { desc = "Terminal up window navigation" })
+map("t", "<C-l>", "<c-\\><c-n><c-w>l", { desc = "Terminal right window navigation" })
 
 if Util.has("telescope.nvim") then
-  map("n", "<A-x>", "<cmd>Telescope commands<cr>", opts)
+  map("n", "<A-x>", "<cmd>Telescope commands<cr>", { desc = "Commands" })
 end
