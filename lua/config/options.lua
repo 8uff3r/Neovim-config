@@ -48,7 +48,6 @@ local options = {
   updatetime = 300, -- Length of time to wait before triggering the plugin
   wrap = true, -- enable wrapping of lines longer than the width of window
   writebackup = false,
-  autochdir = true,
 }
 
 local globals = {
@@ -64,8 +63,14 @@ local globals = {
   status_diagnostics_enabled = true, -- enable diagnostics in statusline
   icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available)
   ui_notifications_enabled = true, -- disable notifications when toggling UI elements
-}
+  -- Prettier
 
+  ['prettier#autoformat'] = 1,
+  ['prettier#autoformat_require_pragma'] = 0,
+  ['prettier#exec_cmd_async'] = 1
+}
+vim.lsp.buf.format({ timeout_ms = 10000 })
+vim.g.acd = true
 for k, v in pairs(options) do
   vim.opt[k] = v
 end

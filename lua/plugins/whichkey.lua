@@ -20,6 +20,7 @@ return {
           x = { "<C-W>v", "Swap current with next" },
         },
         t = { name = "+terminal" },
+        a = {name="+LSPSaga"}
       },
     })
   end,

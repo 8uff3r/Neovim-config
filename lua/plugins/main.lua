@@ -33,7 +33,7 @@ return {
   { "nvim-telescope/telescope-ui-select.nvim" },
   { "mskelton/live-reload.nvim" },
   { "tiagovla/scope.nvim" },
-  { "prettier/vim-prettier" },
+  -- { "prettier/vim-prettier" },
   { "kdheepak/lazygit.nvim" },
   {
     "numToStr/Comment.nvim",
@@ -58,5 +58,30 @@ return {
       end,
     },
   },
-  -- { "ggandor/leap.nvim", enabled = false },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  },
+  { 'nvim-telescope/telescope-ui-select.nvim' },
+  -- { "windwp/nvim-ts-autotag",
+  --   config = function()
+  --     require('nvim-ts-autotag').setup()
+  --   end },
+  { "norcalli/nvim-colorizer.lua",
+    config = function()
+      require('colorizer').setup {
+        'css',
+        'javascript', }
+    end },
+  {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+
+  },
 }
