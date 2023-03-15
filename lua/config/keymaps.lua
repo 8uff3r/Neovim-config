@@ -15,9 +15,11 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save" })
-map("n", "<leader>bs", "<cmd>:BufferLinePick<CR>", { desc = "Pick buffer" })
+map("n", "<leader>bs", "<cmd>BufferLinePick<CR>", { desc = "Pick buffer" })
 map("n", "<leader>d", "<cmd>Alpha<cr>", { desc = "Alpha" })
 map("n", "<leader>fp", "<cmd>Telescope projects<cr>", { desc = "Projects" })
+map("n", "<leader>ql", "<cmd>SessionManager load_session<cr>", { desc = "Load a Session" })
+map("n", "<leader>qf", "<cmd>SessionManager load_current_dir_session<cr>", { desc = "Load current directory session" })
 -- ToggleTerm
 -- if Util.has("toggleterm.nvim") then
 -- local toggle_term_cmd = helpers.toggle_term_cmd
@@ -72,7 +74,6 @@ if Util.has("telescope.nvim") then
   map("n", "<leader>bl", "<cmd>Telescope buffers<cr>", { desc = "Commands" })
 end
 
-
 -- LSPSaga
 map("n", "<leader>aa", "<cmd>Lspsaga code_action<cr>", { desc = "code actions" })
 map("n", "<leader>ar", "<cmd>Lspsaga rename<cr>", { desc = "Rename" })
@@ -81,6 +82,7 @@ map("n", "<leader>al", "<cmd>Lspsaga show_line_diagnostics<cr>", { desc = "LSP f
 map("n", "<leader>al", "<cmd>Lspsaga show_line_diagnostics<cr>", { desc = "Show line diagnostics" })
 map("n", "<leader>ab", "<cmd>Lspsaga show_buf_diagnostics<cr>", { desc = "Show buffer diagnostics" })
 map("n", "<leader>ac", "<cmd>Lspsaga show_cursor_diagnostics<cr>", { desc = "Show cursor diagnostics" })
-map("n", "<leader>ap", "<cmd>Lspsaga peek_definition<cr>", { desc = "Show cursor diagnostics" })
+map("n", "<leader>ap", "<cmd>Lspsaga peek_definition<cr>", { desc = "Peek definition" })
+map("n", "<leader>at", "<cmd>Lspsaga peek_type_definition<cr>", { desc = "Peek type definition" })
 map("n", "<leader>ah", "<cmd>Lspsaga hover_doc<cr>", { desc = "Hover doc" })
 map("n", "<leader>ao", "<cmd>Lspsaga outline<cr>", { desc = "Outline" })

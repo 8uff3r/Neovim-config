@@ -1,4 +1,4 @@
-return {
+local ignore = {
   "VonHeikemen/lsp-zero.nvim",
   branch = "v1.x",
   dependencies = {
@@ -32,3 +32,5 @@ return {
     { "rafamadriz/friendly-snippets" }, -- Optional
   },
 }
+
+return {}

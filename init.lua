@@ -2,4 +2,5 @@
 require("config.lazy")
 require("utils")
 vim.api.nvim_set_option("clipboard", "unnamed")
--- vim.opt.acd=true
+vim.mouse = ""
+vim.g.material_style = "deep ocean"

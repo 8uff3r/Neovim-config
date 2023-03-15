@@ -1,3 +1,26 @@
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
+
+-- emulate autochdir, which is deprecated
+vim.api.nvim_create_augroup("autochdir", {})
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = "autochdir",
+  pattern = "?*",
+  callback = function()
+    local ignoredFT = {
+      "gitcommit",
+      "NeogitCommitMessage",
+      "DiffviewFileHistory",
+      "",
+    }
+    if
+      not vim.bo.modifiable
+      or vim.tbl_contains(ignoredFT, vim.bo.filetype)
+      or not (vim.fn.expand("%:p"):find("^/"))
+    then
+      return
+    end
+    vim.cmd.cd(vim.fn.expand("%:p:h"))
+  end,
+})

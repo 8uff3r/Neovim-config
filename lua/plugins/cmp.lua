@@ -29,12 +29,12 @@ return {
     --         }
     window = {
       completion = {
-        border = border "CmpBorder",
+        border = border("CmpBorder"),
         winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
         autocomplete = true,
       },
       documentation = {
-        border = border "CmpDocBorder",
+        border = border("CmpDocBorder"),
       },
       -- sources = require("cmp").config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
     },
@@ -61,5 +61,5 @@ return {
     --   }
     --   opts.window.documentation = border "CmpDocBorder"
     -- end,
-  }
+  },
 }

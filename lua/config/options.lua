@@ -65,11 +65,11 @@ local globals = {
   ui_notifications_enabled = true, -- disable notifications when toggling UI elements
   -- Prettier
 
-  ['prettier#autoformat'] = 1,
-  ['prettier#autoformat_require_pragma'] = 0,
-  ['prettier#exec_cmd_async'] = 1
+  ["prettier#autoformat"] = 1,
+  ["prettier#autoformat_require_pragma"] = 0,
+  ["prettier#exec_cmd_async"] = 1,
 }
-vim.lsp.buf.format({ timeout_ms = 10000 })
+vim.lsp.buf.format({ timeout_ms = 30000 })
 vim.g.acd = true
 for k, v in pairs(options) do
   vim.opt[k] = v
