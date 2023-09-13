@@ -1,72 +1,37 @@
 return {
   { "folke/neoconf.nvim", cmd = "Neoconf" },
-  { "folke/neodev.nvim" },
-  {
-    "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    run = ":Neorg sync-parsers",
-    config = function()
-      require("neorg").setup({
-        load = {
-          ["core.defaults"] = {},
-        },
-      })
-    end,
-    opts = {
-      load = {
-        ["core.defaults"] = {}, -- Loads default behaviour
-        ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-        ["core.norg.dirman"] = { -- Manages Neorg workspaces
-          config = {
-            workspaces = {
-              notes = "~/notes",
-            },
-          },
-        },
-      },
-    },
-    dependencies = { { "nvim-lua/plenary.nvim" } },
-  },
+  { "folke/neodev.nvim", lazy = true },
   { "nvim-lua/plenary.nvim" },
   { "nyoom-engineering/oxocarbon.nvim" },
-  { "Shatur/neovim-session-manager" },
-  { "nvim-telescope/telescope-ui-select.nvim" },
-  { "mskelton/live-reload.nvim" },
 
-  {
-    "Equilibris/nx.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("nx").setup({})
-    end,
-  },
+  { "Shatur/neovim-session-manager" },
   {
     "tiagovla/scope.nvim",
     config = function()
       require("scope").setup()
     end,
-    -- keys = {
-    --   { "<A-l>", "<cmd>tabnext<cr>", { desc = "tabnext" } },
-    --   { "<A-h>", "<cmd>tabprevious<cr>", { desc = "tabprev" } },
-    --   { "<A-t>", "<cmd>tabnew<cr>", { desc = "tabnew" } },
-    --   { "<A-c>", "<cmd>tabclose<cr>", { desc = "tabclose" } },
-    -- },
+    keys = {
+      { "<A-l>", "<cmd>tabnext<cr>", { desc = "tabnext" } },
+      { "<A-h>", "<cmd>tabprevious<cr>", { desc = "tabprev" } },
+      { "<A-t>", "<cmd>tabnew<cr>", { desc = "tabnew" } },
+      { "<A-c>", "<cmd>tabclose<cr>", { desc = "tabclose" } },
+    },
   },
   -- { "prettier/vim-prettier" },
   { "kdheepak/lazygit.nvim" },
   {
     "numToStr/Comment.nvim",
-    --     keys = { { "gc", mode = { "n", "v" } }, { "gb", mode = { "n", "v" } } },
+    keys = { { "gc", mode = { "n", "v" } }, { "gb", mode = { "n", "v" } } },
     opts = function()
       return { pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook() }
     end,
     config = function()
+      local ft = require("Comment.ft")
+      ft.csharp = { "//%s", "/* %s */" }
       require("Comment").setup()
     end,
   },
-  { "kdheepak/lazygit.nvim" },
+  { "kdheepak/lazygit.nvim", lazy = true },
   { "mrjones2014/smart-splits.nvim" },
   {
     "rcarriga/nvim-notify",
@@ -80,17 +45,13 @@ return {
       end,
     },
   },
-  {
-    "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-  },
-  { "nvim-telescope/telescope-ui-select.nvim" },
   -- { "windwp/nvim-ts-autotag",
   --   config = function()
   --     require('nvim-ts-autotag').setup()
   --   end },
   {
     "norcalli/nvim-colorizer.lua",
+    lazy = true,
     config = function()
       require("colorizer").setup({
         "css",
@@ -108,31 +69,51 @@ return {
       })
     end,
   },
-  { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+  { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" }, lazy = true },
   {
-    "olivercederborg/poimandres.nvim",
+    "HiPhish/nvim-ts-rainbow2",
     config = function()
-      require("poimandres").setup({
-        -- leave this setup function empty for default config
-        -- or refer to the configuration section
-        -- for configuration options
+      require("nvim-treesitter.configs").setup({
+        rainbow = {
+          enable = true,
+          -- list of languages you want to disable the plugin for
+          disable = { "jsx", "cpp" },
+          -- Which query to use for finding delimiters
+          query = "rainbow-parens",
+          -- Highlight the entire buffer all at once
+          strategy = require("ts-rainbow").strategy.global,
+        },
       })
     end,
   },
-  { "marko-cerovac/material.nvim" },
-  { "catppuccin/nvim" },
-  -- {
-  --   "ray-x/go.nvim",
-  --   dependencies = { -- optional packages
-  --     "ray-x/guihua.lua",
-  --     "neovim/nvim-lspconfig",
-  --     "nvim-treesitter/nvim-treesitter",
-  --   },
-  --   config = function()
-  --     require("go").setup()
-  --   end,
-  --   event = { "CmdlineEnter" },
-  --   ft = { "go", "gomod" },
-  --   build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
-  -- },
+  {
+    "ray-x/go.nvim",
+    lazy = true,
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+  },
+  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" }, lazy = true },
+  {
+    "akinsho/flutter-tools.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "stevearc/dressing.nvim", -- optional for vim.ui.select
+    },
+    config = function()
+      require("flutter-tools").setup({})
+    end,
+  },
+  {
+    "mustache/vim-mustache-handlebars",
+  },
 }

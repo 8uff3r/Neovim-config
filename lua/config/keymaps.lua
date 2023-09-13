@@ -17,7 +17,6 @@ end
 map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save" })
 map("n", "<leader>bs", "<cmd>BufferLinePick<CR>", { desc = "Pick buffer" })
 map("n", "<leader>d", "<cmd>Alpha<cr>", { desc = "Alpha" })
-map("n", "<leader>fp", "<cmd>Telescope projects<cr>", { desc = "Projects" })
 map("n", "<leader>ql", "<cmd>SessionManager load_session<cr>", { desc = "Load a Session" })
 map("n", "<leader>qf", "<cmd>SessionManager load_current_dir_session<cr>", { desc = "Load current directory session" })
 -- ToggleTerm
@@ -68,11 +67,6 @@ map("n", "<leader>qf", "<cmd>SessionManager load_current_dir_session<cr>", { des
 -- map("t", "<C-j>", "<c-\\><c-n><c-w>j", { desc = "Terminal down window navigation" })
 -- map("t", "<C-k>", "<c-\\><c-n><c-w>k", { desc = "Terminal up window navigation" })
 -- map("t", "<C-l>", "<c-\\><c-n><c-w>l", { desc = "Terminal right window navigation" })
-
-if Util.has("telescope.nvim") then
-  map("n", "<A-x>", "<cmd>Telescope commands<cr>", { desc = "Commands" })
-  map("n", "<leader>bl", "<cmd>Telescope buffers<cr>", { desc = "Commands" })
-end
 
 -- LSPSaga
 map("n", "<leader>aa", "<cmd>Lspsaga code_action<cr>", { desc = "code actions" })

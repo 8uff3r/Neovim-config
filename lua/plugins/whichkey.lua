@@ -19,8 +19,9 @@ return {
           l = { "<C-W>l", "Go to the right window" },
           x = { "<C-W>v", "Swap current with next" },
         },
-        t = { name = "+terminal" },
-        a = {name="+LSPSaga"}
+        t = { name = "+Terminal" },
+        a = { name = "+LSPSaga" },
+        r = { name = "+Run" },
       },
     })
   end,

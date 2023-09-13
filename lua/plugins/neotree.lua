@@ -26,8 +26,20 @@ return {
       },
     },
     filesystem = {
-      follow_current_file = true,
+      follow_current_file = {
+        enabled = true,
+      },
       group_empty_dirs = true,
+      find_args = { -- you can specify extra args to pass to the find command.
+        fd = {
+          "--max-depth",
+          "1",
+        },
+        find = {
+          "-maxdepth",
+          1,
+        },
+      },
     },
   },
 }

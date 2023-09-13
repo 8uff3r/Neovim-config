@@ -1,5 +1,6 @@
 return {
   "christoomey/vim-tmux-navigator",
+  lazy = true,
   config = function()
     vim.cmd([[
     noremap <silent> <m-h> :TmuxNavigateLeft<cr>

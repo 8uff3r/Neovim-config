@@ -1,16 +1,24 @@
 return {
   {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    "nvim-telescope/telescope.nvim",
+    keys = {
+      { "<leader>.", "<cmd>Telescope file_browser<cr>", desc = "Browse current directory" },
+      { "<leader>h", "<cmd>Telescope file_browser path=~/<cr>", desc = "Browse $Home directory" },
+      { "<leader>fp", "<cmd>Telescope projects<cr>", desc = "Projects" },
+      { "<A-x>", "<cmd>Telescope commands<cr>", desc = "Commands" },
+    },
     config = function()
       -- This is your opts table
-      require("telescope").setup {
+      require("telescope").setup({
         extensions = {
           ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
+            require("telescope.themes").get_dropdown({
               -- even more opts
-            }
-
+            }),
+            file_browser = {
+              theme = "ivy",
+              hijack_netrw = true,
+            },
             -- pseudo code / specification for writing custom displays, like the one
             -- for "codeactions"
             -- specific_opts = {
@@ -24,15 +32,23 @@ return {
             --      do the following
             --   codeactions = false,
             -- }
-          }
-        }
-      }
+          },
+        },
+      })
       -- To get ui-select loaded and working with telescope, you need to call
       -- load_extension, somewhere after setup function:
       require("telescope").load_extension("ui-select")
-      -- require 'telescope'.load_extension('project')
-      require('telescope').load_extension('projects')
+      require("telescope").load_extension("projects")
       -- require 'telescope'.extensions.projects.projects {}
-    end
+      require("telescope").load_extension("file_browser")
+    end,
   },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+  },
+  { "nvim-telescope/telescope-ui-select.nvim", dependencies = { "nvim-telescope/telescope.nvim" } },
 }
