@@ -18,7 +18,6 @@ return {
     },
   },
   -- { "prettier/vim-prettier" },
-  { "kdheepak/lazygit.nvim" },
   {
     "numToStr/Comment.nvim",
     keys = { { "gc", mode = { "n", "v" } }, { "gb", mode = { "n", "v" } } },
@@ -31,8 +30,8 @@ return {
       require("Comment").setup()
     end,
   },
-  { "kdheepak/lazygit.nvim", lazy = true },
   { "mrjones2014/smart-splits.nvim" },
+  
   {
     "rcarriga/nvim-notify",
     enabled = false,

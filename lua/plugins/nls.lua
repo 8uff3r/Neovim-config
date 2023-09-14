@@ -1,5 +1,6 @@
 return {
   "jose-elias-alvarez/null-ls.nvim",
+  enabled = false,
   opts = function()
     local nls = require("null-ls")
     vim.lsp.buf.format({ timeout_ms = 10000 })
