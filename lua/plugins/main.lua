@@ -31,7 +31,7 @@ return {
     end,
   },
   { "mrjones2014/smart-splits.nvim" },
-  
+
   {
     "rcarriga/nvim-notify",
     enabled = false,
@@ -114,5 +114,18 @@ return {
   },
   {
     "mustache/vim-mustache-handlebars",
+  },
+  { "https://github.com/nikvdp/neomux" },
+  {
+    "aserowy/tmux.nvim",
+    config = function()
+      return require("tmux").setup()
+    end,
+    keys = {
+      { "<C-l>", "<cmd>lua require('tmux').move_right()<cr>", { desc = "tabnext" } },
+      { "<C-h>", "<cmd>lua require('tmux').move_left()<cr>", { desc = "tabprev" } },
+      { "<C-j>", "<cmd>lua require('tmux').move_bottom()<cr>", { desc = "tabnew" } },
+      { "<C-k>", "<cmd>lua require('tmux').move_top()<cr>", { desc = "tabclose" } },
+    },
   },
 }

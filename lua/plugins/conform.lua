@@ -15,13 +15,23 @@ return {
         -- Use a sub-list to run only the first available formatter
         javascript = { { "dprint", "prettierd", "prettier" } },
         typescript = { { "dprint", "prettierd", "prettier" } },
-        vue = { { "prettierd", "prettier" } },
+        json = { { "dprint", "prettierd", "prettier" } },
+        vue = { { "prettierd", "prettier" }, "rustywind" },
+        svelte = { { "prettierd", "prettier" }, "rustywind" },
+        yaml = { { "prettierd", "prettier" } },
+        css = { { "prettierd", "prettier" } },
+        scss = { { "prettierd", "prettier" } },
         -- Use the "*" filetype to run formatters on all files.
         -- Note that if you use this, you may want to set lsp_fallback = "always"
         -- (see :help conform.format)
         ["*"] = { "trim_whitespace" },
       },
       formatters = {
+        rustywind = {
+          command = "rustywind",
+          args = { "--stdin", "$FILENAME" },
+          stdin = true,
+        },
         dprint = {
           command = "/home/rylan/.dprint/bin/dprint",
           args = { "fmt", "--stdin", "$FILENAME" },

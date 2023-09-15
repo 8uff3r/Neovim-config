@@ -89,15 +89,15 @@ return {
               },
             },
           },
-          -- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
-          filetypes = { "vue", "json" },
+          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+          -- filetypes = { "vue", "json" },
           cmd = { "/home/rylan/.local/share/pnpm/vue-language-server", "--stdio" },
         },
         gopls = {},
         rust_analyzer = {},
         csharp_ls = {},
         nim_langserver = {},
-        tsserver = {},
+        -- tsserver = {},
         lua_ls = {
           autostart = false,
         },
@@ -110,10 +110,9 @@ return {
         --   return true
         -- end,
         -- example to setup with typescript.nvim
-        -- tsserver = function(_, opts)
-        --   require("typescript").setup({ server = opts })
-        --   return true
-        -- end,
+        tsserver = function(_, opts)
+          return true
+        end,
         -- volar = function(server, opts)
         --   require("typescript").setup({ server = opts })
         --   -- return true
@@ -132,4 +131,12 @@ return {
   --   opts = {},
   -- },
   { "alaviss/nim.nvim" },
+  {
+    "j-hui/fidget.nvim",
+    tag = "legacy",
+    event = "LspAttach",
+    opts = {
+      -- options
+    },
+  },
 }
