@@ -128,4 +128,19 @@ return {
       { "<C-k>", "<cmd>lua require('tmux').move_top()<cr>", { desc = "tabclose" } },
     },
   },
+  {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("neoscroll").setup()
+    end,
+  },
+  {
+    "acksld/nvim-neoclip.lua",
+    keys = {
+      { "<leader>y", "<cmd>Telescope neoclip<cr>" },
+    },
+    opts = {
+      enable_persistent_history = true,
+    },
+  },
 }

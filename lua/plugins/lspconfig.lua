@@ -34,7 +34,12 @@ return {
       -- options for vim.lsp.buf.format
       -- `bufnr` and `filter` is handled by the LazyVim formatter,
       -- but can be also overridden when specified
+
+      -- Never request volar for formatting, because of wrong postcss formatting
       format = {
+        filter = function(client)
+          return client.name ~= "volar"
+        end,
         formatting_options = nil,
         timeout_ms = 10000,
       },

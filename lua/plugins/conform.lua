@@ -29,7 +29,7 @@ return {
       formatters = {
         rustywind = {
           command = "rustywind",
-          args = { "--stdin", "$FILENAME" },
+          args = { "--stdin" },
           stdin = true,
         },
         dprint = {

@@ -24,3 +24,8 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     vim.cmd.cd(vim.fn.expand("%:p:h"))
   end,
 })
+vim.api.nvim_create_autocmd("DirChanged", {
+  group = vim.api.nvim_create_augroup("setDir", { clear = true }),
+  pattern = { "*" },
+  command = [[call chansend(v:stderr, printf("\033]7;file://%s\033\\", v:event.cwd))]],
+})
