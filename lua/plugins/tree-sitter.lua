@@ -65,9 +65,6 @@ return {
       autotag = {
         enable = true,
       },
-      context = {
-        enable = true,
-      },
       rainbow = {
         enable = true,
         -- list of languages you want to disable the plugin for
@@ -83,6 +80,5 @@ return {
     require("nvim-treesitter.configs").setup()
   end,
   { "windwp/nvim-ts-autotag", dependencies = { "nvim-treesitter/nvim-treesitter" } },
-  { "nvim-treesitter/nvim-treesitter-context", dependencies = { "nvim-treesitter/nvim-treesitter" } },
   { "JoosepAlviste/nvim-ts-context-commentstring", dependencies = { "nvim-treesitter/nvim-treesitter" } },
 }

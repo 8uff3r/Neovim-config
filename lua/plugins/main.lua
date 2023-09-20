@@ -1,6 +1,6 @@
 return {
-  { "folke/neoconf.nvim", cmd = "Neoconf" },
-  { "folke/neodev.nvim", lazy = true },
+  { "folke/neoconf.nvim",              cmd = "Neoconf" },
+  { "folke/neodev.nvim",               lazy = true },
   { "nvim-lua/plenary.nvim" },
   { "nyoom-engineering/oxocarbon.nvim" },
 
@@ -11,10 +11,10 @@ return {
       require("scope").setup()
     end,
     keys = {
-      { "<A-l>", "<cmd>tabnext<cr>", { desc = "tabnext" } },
+      { "<A-l>", "<cmd>tabnext<cr>",     { desc = "tabnext" } },
       { "<A-h>", "<cmd>tabprevious<cr>", { desc = "tabprev" } },
-      { "<A-t>", "<cmd>tabnew<cr>", { desc = "tabnew" } },
-      { "<A-c>", "<cmd>tabclose<cr>", { desc = "tabclose" } },
+      { "<A-t>", "<cmd>tabnew<cr>",      { desc = "tabnew" } },
+      { "<A-c>", "<cmd>tabclose<cr>",    { desc = "tabclose" } },
     },
   },
   -- { "prettier/vim-prettier" },
@@ -68,7 +68,7 @@ return {
       })
     end,
   },
-  { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" }, lazy = true },
+  { "sindrets/diffview.nvim",       dependencies = { "nvim-lua/plenary.nvim" }, lazy = true },
   {
     "HiPhish/nvim-ts-rainbow2",
     config = function()
@@ -100,7 +100,7 @@ return {
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
-  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" }, lazy = true },
+  { "rcarriga/nvim-dap-ui",            dependencies = { "mfussenegger/nvim-dap" }, lazy = true },
   {
     "akinsho/flutter-tools.nvim",
     lazy = false,
@@ -116,18 +116,18 @@ return {
     "mustache/vim-mustache-handlebars",
   },
   { "https://github.com/nikvdp/neomux" },
-  {
-    "aserowy/tmux.nvim",
-    config = function()
-      return require("tmux").setup()
-    end,
-    keys = {
-      { "<C-l>", "<cmd>lua require('tmux').move_right()<cr>", { desc = "tabnext" } },
-      { "<C-h>", "<cmd>lua require('tmux').move_left()<cr>", { desc = "tabprev" } },
-      { "<C-j>", "<cmd>lua require('tmux').move_bottom()<cr>", { desc = "tabnew" } },
-      { "<C-k>", "<cmd>lua require('tmux').move_top()<cr>", { desc = "tabclose" } },
-    },
-  },
+  -- {
+  --   "aserowy/tmux.nvim",
+  --   config = function()
+  --     return require("tmux").setup()
+  --   end,
+  --   keys = {
+  --     { "<C-l>", "<cmd>lua require('tmux').move_right()<cr>", { desc = "tabnext" } },
+  --     { "<C-h>", "<cmd>lua require('tmux').move_left()<cr>", { desc = "tabprev" } },
+  --     { "<C-j>", "<cmd>lua require('tmux').move_bottom()<cr>", { desc = "tabnew" } },
+  --     { "<C-k>", "<cmd>lua require('tmux').move_top()<cr>", { desc = "tabclose" } },
+  --   },
+  -- },
   {
     "karb94/neoscroll.nvim",
     config = function()
@@ -142,5 +142,22 @@ return {
     opts = {
       enable_persistent_history = true,
     },
+  },
+  {
+    "ecthelionvi/NeoComposer.nvim",
+    dependencies = { "kkharji/sqlite.lua" },
+    opts = {},
+  },
+  {
+    "smjonas/live-command.nvim",
+    -- live-command supports semantic versioning via tags
+    -- tag = "1.*",
+    config = function()
+      require("live-command").setup({
+        commands = {
+          Norm = { cmd = "norm" },
+        },
+      })
+    end,
   },
 }

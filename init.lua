@@ -6,3 +6,4 @@ set mousemodel=extend
 ]])
 vim.g.material_style = "deep ocean"
 vim.g.material_theme_style = "ocean"
+vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#626A95" })

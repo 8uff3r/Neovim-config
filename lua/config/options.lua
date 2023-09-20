@@ -8,6 +8,7 @@ local options = {
   backup = false,
   hlsearch = false,
   incsearch = true,
+  termbidi = true,
   guifont = { "FiraCode Nerd Font", ":h11" },
   -- colorcolumn = "80",
   clipboard = "unnamedplus", -- Connection to the system clipboard
@@ -78,3 +79,6 @@ end
 for k, v in pairs(globals) do
   vim.g[k] = v
 end
+
+-- Highlight Groups
+vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#626A95" })

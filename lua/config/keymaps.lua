@@ -14,6 +14,8 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
 map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save" })
 map("n", "<leader>bs", "<cmd>BufferLinePick<CR>", { desc = "Pick buffer" })
 map("n", "<leader>d", "<cmd>Alpha<cr>", { desc = "Alpha" })

@@ -7,7 +7,7 @@ return {
     require("legendary").setup({
       keymaps = {
         -- map keys to a commands
-        { "<leader>sl", ":Legendary<CR>", description = "Swap current with next" },
+        { "<leader>sl", "<cmd>Legendary<cr>", description = "Swap current with next" },
       },
       which_key = { auto_register = true },
     })
