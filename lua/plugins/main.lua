@@ -1,9 +1,8 @@
 return {
-  { "folke/neoconf.nvim",              cmd = "Neoconf" },
-  { "folke/neodev.nvim",               lazy = true },
+  { "folke/neoconf.nvim", cmd = "Neoconf" },
+  { "folke/neodev.nvim", lazy = true },
   { "nvim-lua/plenary.nvim" },
   { "nyoom-engineering/oxocarbon.nvim" },
-
   { "Shatur/neovim-session-manager" },
   {
     "tiagovla/scope.nvim",
@@ -11,13 +10,12 @@ return {
       require("scope").setup()
     end,
     keys = {
-      { "<A-l>", "<cmd>tabnext<cr>",     { desc = "tabnext" } },
+      { "<A-l>", "<cmd>tabnext<cr>", { desc = "tabnext" } },
       { "<A-h>", "<cmd>tabprevious<cr>", { desc = "tabprev" } },
-      { "<A-t>", "<cmd>tabnew<cr>",      { desc = "tabnew" } },
-      { "<A-c>", "<cmd>tabclose<cr>",    { desc = "tabclose" } },
+      { "<A-t>", "<cmd>tabnew<cr>", { desc = "tabnew" } },
+      { "<A-c>", "<cmd>tabclose<cr>", { desc = "tabclose" } },
     },
   },
-  -- { "prettier/vim-prettier" },
   {
     "numToStr/Comment.nvim",
     keys = { { "gc", mode = { "n", "v" } }, { "gb", mode = { "n", "v" } } },
@@ -44,10 +42,6 @@ return {
       end,
     },
   },
-  -- { "windwp/nvim-ts-autotag",
-  --   config = function()
-  --     require('nvim-ts-autotag').setup()
-  --   end },
   {
     "norcalli/nvim-colorizer.lua",
     lazy = true,
@@ -68,7 +62,7 @@ return {
       })
     end,
   },
-  { "sindrets/diffview.nvim",       dependencies = { "nvim-lua/plenary.nvim" }, lazy = true },
+  { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" }, lazy = true },
   {
     "HiPhish/nvim-ts-rainbow2",
     config = function()
@@ -100,7 +94,7 @@ return {
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
-  { "rcarriga/nvim-dap-ui",            dependencies = { "mfussenegger/nvim-dap" }, lazy = true },
+  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" }, lazy = true },
   {
     "akinsho/flutter-tools.nvim",
     lazy = false,
@@ -116,24 +110,6 @@ return {
     "mustache/vim-mustache-handlebars",
   },
   { "https://github.com/nikvdp/neomux" },
-  -- {
-  --   "aserowy/tmux.nvim",
-  --   config = function()
-  --     return require("tmux").setup()
-  --   end,
-  --   keys = {
-  --     { "<C-l>", "<cmd>lua require('tmux').move_right()<cr>", { desc = "tabnext" } },
-  --     { "<C-h>", "<cmd>lua require('tmux').move_left()<cr>", { desc = "tabprev" } },
-  --     { "<C-j>", "<cmd>lua require('tmux').move_bottom()<cr>", { desc = "tabnew" } },
-  --     { "<C-k>", "<cmd>lua require('tmux').move_top()<cr>", { desc = "tabclose" } },
-  --   },
-  -- },
-  {
-    "karb94/neoscroll.nvim",
-    config = function()
-      require("neoscroll").setup()
-    end,
-  },
   {
     "acksld/nvim-neoclip.lua",
     keys = {
@@ -159,5 +135,10 @@ return {
         },
       })
     end,
+  },
+  {
+    "chrisgrieser/nvim-recorder",
+    dependencies = "rcarriga/nvim-notify", -- optional
+    opts = {}, -- required even with default settings, since it calls `setup()`
   },
 }

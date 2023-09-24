@@ -169,14 +169,16 @@ return {
 
   {
     "ray-x/lsp_signature.nvim",
+    enabled = false,
     config = function()
       require("lsp_signature").setup({
-        fix_pos = true,
+        fix_pos = false,
         bind = true,
         floating_window = true,
         floating_window_above_cur_line = true,
         zindex = 1002,
         noice = true,
+        always_trigger = false,
         timer_interval = 100,
         extra_trigger_chars = {},
         handler_opts = {

@@ -53,6 +53,18 @@ return {
         to("Up")
       end,
     },
+    {
+      "<C-h>",
+      function()
+        to("Left")
+      end,
+    },
+    {
+      "<C-l>",
+      function()
+        to("Right")
+      end,
+    },
   },
   config = true,
 }
