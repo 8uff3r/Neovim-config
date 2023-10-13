@@ -6,7 +6,7 @@ return {
       options = { theme = ayu_dark },
       sections = {
         lualine_c = {
-          "filename",
+          { "filename", file_status = true, newfile_status = true, color = { fg = "#81F4FC" }, path = 3 },
           -- {
           --   require("noice").api.status.mode.get,
           --   cond = require("noice").api.status.mode.has,

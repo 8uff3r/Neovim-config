@@ -6,20 +6,17 @@ return {
       "onsails/lspkind.nvim",
     },
     init = function()
-      -- require("lspconfig").volar.setup({
-      --   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
-      --   cmd = { "/home/rylan/.local/share/pnpm/vue-language-server", "--stdio" },
-      -- })
-      -- require("lspconfig").gopls.setup({})
-      require("lazyvim.util").on_attach(function(_, buffer)
-      -- stylua: ignore
-      vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
-        vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { desc = "Rename File", buffer = buffer })
-      end)
+      local keys = require("lazyvim.plugins.lsp.keymaps").get()
+      -- change a keymap
+      keys[#keys + 1] = { "K", "<cmd>Lspsaga hover_doc<CR>" }
+      keys[#keys + 1] = { "<leader>ca", false, mode = { "n", "v" } }
+      keys[#keys + 1] = { "<leader>cA", false }
+      keys[#keys + 1] = { "<leader>cr", false }
+      keys[#keys + 1] = { "<Space>ca", false, mode = { "n", "v" } }
+      keys[#keys + 1] = { "<Space>cA", false }
+      keys[#keys + 1] = { "<Space>cr", false }
+      require("lazyvim.util").lsp.on_attach(function(_, buffer) end)
     end,
-    -- @class PluginLspOpts
-    -- function()
-    -- return
     opts = {
       -- options for vim.diagnostic.config()
       inlay_hints = { enabled = true },
@@ -106,6 +103,7 @@ return {
         lua_ls = {
           autostart = false,
         },
+        julials = {},
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig

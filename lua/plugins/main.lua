@@ -70,7 +70,7 @@ return {
         rainbow = {
           enable = true,
           -- list of languages you want to disable the plugin for
-          disable = { "jsx", "cpp" },
+          disable = {},
           -- Which query to use for finding delimiters
           query = "rainbow-parens",
           -- Highlight the entire buffer all at once
@@ -121,6 +121,7 @@ return {
   },
   {
     "ecthelionvi/NeoComposer.nvim",
+    enabled = false,
     dependencies = { "kkharji/sqlite.lua" },
     opts = {},
   },
@@ -140,5 +141,15 @@ return {
     "chrisgrieser/nvim-recorder",
     dependencies = "rcarriga/nvim-notify", -- optional
     opts = {}, -- required even with default settings, since it calls `setup()`
+  },
+  {
+
+    "echasnovski/mini.hipatterns",
+    opts = {
+      tailwind = {
+
+        ft = { "typescriptreact", "javascriptreact", "css", "javascript", "typescript", "html", "vue", "svelte" },
+      },
+    },
   },
 }

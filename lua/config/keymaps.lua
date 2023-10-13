@@ -24,6 +24,7 @@ map("n", "<leader>qf", "<cmd>SessionManager load_current_dir_session<cr>", { des
 map("n", "<leader>gg", "<cmd>Neogit cwd=%:p:h<cr>", { desc = "Negit current directory" })
 map("n", "<leader>gf", "<cmd>Neogit cwd=%:p:h kind='floating'<cr>", { desc = "Negit cwd floating" })
 map("n", "<leader>gs", "<cmd>Neogit cwd=%:p:h kind='split'<cr>", { desc = "Negit cwd split" })
+map("n", "K", "<cmd>Lspsaga hover_doc")
 -- ToggleTerm
 -- if Util.has("toggleterm.nvim") then
 -- local toggle_term_cmd = helpers.toggle_term_cmd
@@ -74,14 +75,20 @@ map("n", "<leader>gs", "<cmd>Neogit cwd=%:p:h kind='split'<cr>", { desc = "Negit
 -- map("t", "<C-l>", "<c-\\><c-n><c-w>l", { desc = "Terminal right window navigation" })
 
 -- LSPSaga
-map("n", "<leader>aa", "<cmd>Lspsaga code_action<cr>", { desc = "code actions" })
-map("n", "<leader>ar", "<cmd>Lspsaga rename<cr>", { desc = "Rename" })
-map("n", "<leader>af", "<cmd>Lspsaga lsp_finder<cr>", { desc = "LSP finder" })
-map("n", "<leader>al", "<cmd>Lspsaga show_line_diagnostics<cr>", { desc = "LSP finder" })
-map("n", "<leader>al", "<cmd>Lspsaga show_line_diagnostics<cr>", { desc = "Show line diagnostics" })
-map("n", "<leader>ab", "<cmd>Lspsaga show_buf_diagnostics<cr>", { desc = "Show buffer diagnostics" })
-map("n", "<leader>ac", "<cmd>Lspsaga show_cursor_diagnostics<cr>", { desc = "Show cursor diagnostics" })
-map("n", "<leader>ap", "<cmd>Lspsaga peek_definition<cr>", { desc = "Peek definition" })
-map("n", "<leader>at", "<cmd>Lspsaga peek_type_definition<cr>", { desc = "Peek type definition" })
-map("n", "<leader>ah", "<cmd>Lspsaga hover_doc<cr>", { desc = "Hover doc" })
-map("n", "<leader>ao", "<cmd>Lspsaga outline<cr>", { desc = "Outline" })
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   callback = function(args)
+--     vim.keymap.del("n", "K", { buffer = args.buf })
+--     vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { buffer = args.buf })
+--   end,
+-- })
+-- map("n", "<leader>aa", "<cmd>Lspsaga code_action<cr>", { desc = "code actions" })
+-- map("n", "<leader>ar", "<cmd>Lspsaga rename<cr>", { desc = "Rename" })
+-- map("n", "<leader>af", "<cmd>Lspsaga lsp_finder<cr>", { desc = "LSP finder" })
+-- map("n", "<leader>al", "<cmd>Lspsaga show_line_diagnostics<cr>", { desc = "LSP finder" })
+-- map("n", "<leader>al", "<cmd>Lspsaga show_line_diagnostics<cr>", { desc = "Show line diagnostics" })
+-- map("n", "<leader>ab", "<cmd>Lspsaga show_buf_diagnostics<cr>", { desc = "Show buffer diagnostics" })
+-- map("n", "<leader>ac", "<cmd>Lspsaga show_cursor_diagnostics<cr>", { desc = "Show cursor diagnostics" })
+-- map("n", "<leader>ap", "<cmd>Lspsaga peek_definition<cr>", { desc = "Peek definition" })
+-- map("n", "<leader>at", "<cmd>Lspsaga peek_type_definition<cr>", { desc = "Peek type definition" })
+-- map("n", "<leader>ah", "<cmd>Lspsaga hover_doc<cr>", { desc = "Hover doc" })
+-- map("n", "<leader>ao", "<cmd>Lspsaga outline<cr>", { desc = "Outline" })

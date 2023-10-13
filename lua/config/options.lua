@@ -82,3 +82,7 @@ end
 
 -- Highlight Groups
 vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#626A95" })
+
+vim.cmd([[
+set keywordprg=:Lspsaga\ hover_doc<CR>
+]])

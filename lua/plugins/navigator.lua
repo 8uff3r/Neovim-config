@@ -1,6 +1,7 @@
 return {
   {
     "ray-x/navigator.lua",
+    enabled = false,
     dependencies = {
       { "ray-x/guihua.lua", build = "cd lua/fzy && make" },
       "neovim/nvim-lspconfig",
@@ -177,7 +178,7 @@ return {
         floating_window = true,
         floating_window_above_cur_line = true,
         zindex = 1002,
-        noice = true,
+        noice = false,
         always_trigger = false,
         timer_interval = 100,
         extra_trigger_chars = {},
