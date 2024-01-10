@@ -7,4 +7,9 @@ return {
     "ibhagwan/fzf-lua", -- optional
   },
   config = true,
+  opts = {
+    status = {
+      recent_commit_count = 30,
+    },
+  },
 }

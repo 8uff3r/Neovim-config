@@ -10,7 +10,21 @@ return {
     },
     config = function()
       -- This is your opts table
+      --
+      local actions = require("telescope.actions")
       require("telescope").setup({
+        pickers = {
+          buffers = {
+            mappings = {
+              n = {
+                ["d"] = "delete_buffer",
+              },
+              i = {
+                ["<C-S-d>"] = "delete_buffer",
+              },
+            },
+          },
+        },
         extensions = {
           ["ui-select"] = {
             require("telescope.themes").get_dropdown({

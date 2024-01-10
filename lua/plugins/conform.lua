@@ -2,9 +2,9 @@ return {
   "stevearc/conform.nvim",
   opts = function()
     return {
-      format_on_save = {
+      format = {
         -- These options will be passed to conform.format()
-        async = true,
+        async = false,
         timeout_ms = 10500,
         lsp_fallback = true,
       },
@@ -28,6 +28,9 @@ return {
         ["*"] = { "trim_whitespace" },
       },
       formatters = {
+        prettierd = {
+          command = "/home/rylan/.local/share/pnpm/prettierd",
+        },
         rustywind = {
           command = "rustywind",
           args = { "--stdin" },
