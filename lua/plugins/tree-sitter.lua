@@ -72,7 +72,6 @@ return {
         -- Which query to use for finding delimiters
         query = "rainbow-parens",
         -- Highlight the entire buffer all at once
-        strategy = require("ts-rainbow").strategy.global,
       },
     }
   end,
@@ -81,4 +80,11 @@ return {
   end,
   { "windwp/nvim-ts-autotag", dependencies = { "nvim-treesitter/nvim-treesitter" } },
   { "JoosepAlviste/nvim-ts-context-commentstring", dependencies = { "nvim-treesitter/nvim-treesitter" } },
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    config = function()
+      require("rainbow-delimiters.setup").setup({})
+    end,
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
 }

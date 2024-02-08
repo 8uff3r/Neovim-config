@@ -64,22 +64,6 @@ return {
   },
   { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" }, lazy = true },
   {
-    "HiPhish/nvim-ts-rainbow2",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        rainbow = {
-          enable = true,
-          -- list of languages you want to disable the plugin for
-          disable = {},
-          -- Which query to use for finding delimiters
-          query = "rainbow-parens",
-          -- Highlight the entire buffer all at once
-          strategy = require("ts-rainbow").strategy.global,
-        },
-      })
-    end,
-  },
-  {
     "ray-x/go.nvim",
     lazy = true,
     dependencies = { -- optional packages
@@ -140,10 +124,11 @@ return {
   {
     "chrisgrieser/nvim-recorder",
     dependencies = "rcarriga/nvim-notify", -- optional
-    opts = {}, -- required even with default settings, since it calls `setup()`
+    opts = {
+      slots = { "a", "b" },
+    }, -- required even with default settings, since it calls `setup()`
   },
   {
-
     "echasnovski/mini.hipatterns",
     opts = {
       tailwind = {
