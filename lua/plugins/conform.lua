@@ -32,7 +32,7 @@ return {
           command = "/home/rylan/.local/share/pnpm/prettierd",
         },
         rustywind = {
-          command = "rustywind",
+          command = "/home/rylan/.cargo/bin/rustywind",
           args = { "--stdin" },
           stdin = true,
         },

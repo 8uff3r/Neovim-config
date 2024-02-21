@@ -125,7 +125,7 @@ return {
     "chrisgrieser/nvim-recorder",
     dependencies = "rcarriga/nvim-notify", -- optional
     opts = {
-      slots = { "a", "b" },
+      slots = { "a", "b", "c" },
     }, -- required even with default settings, since it calls `setup()`
   },
   {
