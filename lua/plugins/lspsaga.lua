@@ -58,6 +58,5 @@ return {
     --Please make sure you install markdown and markdown_inline parser
     { "nvim-treesitter/nvim-treesitter" },
     { "neovim/nvim-lspconfig" },
-    -- { "VonHeikemen/lsp-zero.nvim" }
   },
 }

@@ -24,5 +24,11 @@ return {
         r = { name = "+Run" },
       },
     })
+    return {
+      window = {
+        border = "single",
+        position = "top",
+      },
+    }
   end,
 }

@@ -8,6 +8,7 @@ return {
     version = "*",
     keys = {
       { "<leader>ts", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Horizontal terminal" },
+      { "<C-'>", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Horizontal terminal" },
       { "<leader>tv", "<cmd>ToggleTerm direction=vertical<cr>", desc = "Vertical terminal" },
       { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Floating terminal" },
     },
@@ -16,7 +17,7 @@ return {
       close_on_exit = true,
       autochdir = true,
       float_opts = {
-        border = curved,
+        border = "curved",
       },
       winbar = {
         enabled = false,
@@ -27,12 +28,12 @@ return {
     },
   },
   {
-	  "ryanmsnyder/toggleterm-manager.nvim",
-  dependencies = {
-    "akinsho/nvim-toggleterm.lua",
-    "nvim-telescope/telescope.nvim",
-    "nvim-lua/plenary.nvim", -- only needed because it's a dependency of telescope
+    "ryanmsnyder/toggleterm-manager.nvim",
+    dependencies = {
+      "akinsho/nvim-toggleterm.lua",
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim", -- only needed because it's a dependency of telescope
+    },
+    config = true,
   },
-  config = true,
-  }
 }

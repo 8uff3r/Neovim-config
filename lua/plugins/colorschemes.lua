@@ -3,7 +3,6 @@ return {
     "folke/tokyonight.nvim",
     lazy = false,
     enabled = false,
-    priority = 1000,
     opts = {
       style = "night",
       on_colors = function(c)
@@ -20,18 +19,27 @@ return {
     config = function()
       vim.g.ayu_extended_palette = 1
       vim.g.ayu_sign_contrast = 1
+      -- local c = require("customcolors")
       require("ayu").setup({
         mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
+        -- overrides = c,
         overrides = {
           Normal = {
-            bg = "#0E0B13",
+            bg = "#07070D",
           },
           Pmenu = {
-            bg = "#0E0B13",
+            bg = "#07070D",
           },
           NormalFloat = {
-            bg = "#0E0B13",
+            bg = "#07070D",
           },
+          WhichKeyFloat = {
+            bg = "#07070D",
+          },
+          WhichKeyBorder = {
+            fg = "#FFB454",
+          },
+          LspInlayHint = { fg = "#6E6A86", bg = "#221F2E" },
         }, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
       })
 
@@ -68,5 +76,5 @@ return {
       },
     },
   },
-  { "EdenEast/nightfox.nvim" },
+  { "EdenEast/nightfox.nvim", enabled = false },
 }

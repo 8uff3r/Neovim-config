@@ -15,10 +15,11 @@ return {
         python = { "isort", "black" },
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier", "dprint" } },
+        html = { { "prettierd", "prettier" } },
         typescript = { { "prettierd", "prettier", "dprint" } },
         json = { { "prettierd", "prettier", "dprint" } },
-        vue = { { "prettierd", "prettier" }, "rustywind" },
-        svelte = { { "prettierd", "prettier" }, "rustywind" },
+        vue = { { "prettierd", "prettier" } },
+        svelte = { { "prettierd", "prettier" } },
         yaml = { { "prettierd", "prettier" } },
         css = { { "prettierd", "prettier" } },
         scss = { { "prettierd", "prettier" } },
