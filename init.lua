@@ -24,3 +24,8 @@ if vim.g.neovide then
     change_scale_factor(1 / 1.25)
   end)
 end
+vim.filetype.add({
+  pattern = {
+    [".*%.blade%.php"] = "blade",
+  },
+})

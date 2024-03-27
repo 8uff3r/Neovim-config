@@ -24,7 +24,6 @@ map("n", "<leader>qf", "<cmd>SessionManager load_current_dir_session<cr>", { des
 map("n", "<leader>gg", "<cmd>Neogit cwd=%:p:h<cr>", { desc = "Negit current directory" })
 map("n", "<leader>gf", "<cmd>Neogit cwd=%:p:h kind='floating'<cr>", { desc = "Negit cwd floating" })
 map("n", "<leader>gs", "<cmd>Neogit cwd=%:p:h kind='split'<cr>", { desc = "Negit cwd split" })
-map("n", "K", "<cmd>Lspsaga hover_doc")
 -- ToggleTerm
 -- if Util.has("toggleterm.nvim") then
 -- local toggle_term_cmd = helpers.toggle_term_cmd

@@ -8,7 +8,7 @@ return {
     init = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
-      keys[#keys + 1] = { "K", "<cmd>Lspsaga hover_doc<CR>" }
+      -- keys[#keys + 1] = { "K", "<cmd>Lspsaga hover_doc<CR>" }
       keys[#keys + 1] = { "<leader>ca", false, mode = { "n", "v" } }
       keys[#keys + 1] = { "<leader>cA", false }
       keys[#keys + 1] = { "<leader>cr", false }
@@ -120,6 +120,11 @@ return {
           },
         },
         nim_langserver = {},
+        rust_analyzer = {},
+        stimulus_ls = {},
+        phpactor = {},
+        psalm = {},
+        -- intelephense = {},
         -- tsserver = {},
         lua_ls = {
           autostart = false,
@@ -127,6 +132,9 @@ return {
       },
       setup = {
         tsserver = function(_, opt)
+          return true
+        end,
+        intelephense = function(_, opt)
           return true
         end,
       },

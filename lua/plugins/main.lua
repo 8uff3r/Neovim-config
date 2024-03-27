@@ -55,7 +55,25 @@ return {
 
   -- Disabled plugins
   { "echasnovski/mini.comment", enabled = false },
-  { "rcarriga/nvim-notify", enabled = false },
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      render = "minimal",
+      stages = "fade",
+      timeout = 3000,
+      top_down = false,
+    },
+  },
   { "nvimtools/none-ls.nvim", enabled = false },
+  {
+    "HampusHauffman/block.nvim",
+    opts = {
+      percent = 1.5,
+      depth = 4,
+      colors = nil,
+      automatic = false,
+      bg = nil,
+    },
+  },
 }
 --0W"byedt'va'gsa(0iconst "bpa=j

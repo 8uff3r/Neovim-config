@@ -161,11 +161,10 @@ return {
   { "alaviss/nim.nvim" },
   {
     "j-hui/fidget.nvim",
-    tag = "legacy",
     event = "LspAttach",
-    opts = {
-      -- options
-    },
+    config = function()
+      require("fidget").setup({})
+    end,
   },
 
   {
@@ -178,7 +177,7 @@ return {
         floating_window = true,
         floating_window_above_cur_line = true,
         zindex = 1002,
-        noice = false,
+        noice = true,
         always_trigger = false,
         timer_interval = 100,
         extra_trigger_chars = {},
