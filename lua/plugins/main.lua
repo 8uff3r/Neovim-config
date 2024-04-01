@@ -1,6 +1,10 @@
 return {
   { "Shatur/neovim-session-manager" },
   {
+    "aserowy/tmux.nvim",
+    opts = {},
+  },
+  {
     "tiagovla/scope.nvim",
     config = function()
       require("scope").setup()

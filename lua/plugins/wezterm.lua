@@ -33,6 +33,7 @@ end
 
 return {
   "8uff3r/wezterm.nvim",
+  enabled = false,
   keys = {
     -- {
     --   "<A-CR>",

@@ -83,3 +83,12 @@ end
 
 -- Highlight Groups
 vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#626A95" })
+
+vim.cmd([[
+nmap <c-c> "+y
+vmap <c-c> "+y
+nmap <c-s-v> "+p
+nmap <c-s-v> "+p
+inoremap <c-s-v> <c-r>+
+cnoremap <c-s-v> <c-r>+
+]])
